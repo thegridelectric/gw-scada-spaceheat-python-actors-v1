@@ -1,0 +1,3 @@
+[submodule "submodules/gridworks-protocol"]
+	path = submodules/gridworks-protocol
+	url = https://github.com/thegridelectric/gridworks-protocol.git
