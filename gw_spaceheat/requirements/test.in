@@ -4,3 +4,4 @@ coverage
 mypy
 black
 pytest-asyncio
+pytest-repeat
