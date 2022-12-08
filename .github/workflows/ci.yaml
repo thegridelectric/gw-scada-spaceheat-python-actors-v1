@@ -40,7 +40,7 @@ jobs:
           target: "tests/.env-gw-spaceheat-test"
       - name: Run tests with pytest under coverage
         run: |
-          pytest --ignore tests/test_actors/ --count 10
+          pytest --ignore tests/test_actors/ --count 100
           coverage run -m pytest --ignore tests/test_actors/
           coverage report
       - name: Upload coverage data
