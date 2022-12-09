@@ -7,20 +7,19 @@ env:
   PYTHON_VERSION: 3.10.6
 
 jobs:
-  tests:
+  tests1:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: ls
-        run: |
-          pwd
-          ls -a `pwd`
-          ls -a `pwd`/.github/workflows
-          ls -a `pwd`/.github/workflows/one-pytest.yaml
-      - name: calling1
-        uses: ./.github/workflows/one-pytest.yaml
-        with:
-          test-name: test_mqtt_client_settings
+    - uses: actions/checkout@v2
+    - name: ls
+      run: |
+        pwd
+        ls -a `pwd`
+        ls -a `pwd`/.github/workflows
+        ls -a `pwd`/.github/workflows/one-pytest.yaml
+    - name: calling1
+      uses: ./.github/workflows/one-pytest.yaml
+      with:
+        test-name: test_mqtt_client_settings
 
 #      - name: calling2
 #        uses: gridworks/gw-scada-spaceheat-python/.github-workflows/one-pytest.yaml@as/repeat
