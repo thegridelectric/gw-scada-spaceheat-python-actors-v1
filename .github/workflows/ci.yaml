@@ -7,11 +7,11 @@ env:
   PYTHON_VERSION: 3.10.6
 
 jobs:
-  test_basic_atn_comm_loss:
-    uses: ./.github/workflows/one-pytest.yaml
-    with:
-      test-name: test_basic_atn_comm_loss
-  
+#  test_basic_atn_comm_loss:
+#    uses: ./.github/workflows/one-pytest.yaml
+#    with:
+#      test-name: test_basic_atn_comm_loss
+#
   test_basic_atn_comm_scada_first:
    uses: ./.github/workflows/one-pytest.yaml
    with:
