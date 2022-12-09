@@ -7,73 +7,43 @@ env:
   PYTHON_VERSION: 3.10.6
 
 jobs:
-  tests1:
+  test_basic_atn_comm_loss:
     uses: ./.github/workflows/one-pytest.yaml
     with:
-      test-name: test_mqtt_client_settings
+      test-name: test_basic_atn_comm_loss
   
-  tests2:
+  test_basic_atn_comm_scada_first:
    uses: ./.github/workflows/one-pytest.yaml
    with:
-     test-name: test_paths
-     count: 3
+     test-name: test_basic_atn_comm_scada_first
 
+  test_basic_atn_comm_atn_first:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     test-name: test_basic_atn_comm_atn_first
 
-#      - uses: actions/checkout@v2
-#      - name: Start 'Local' Mosquitto
-#        uses: namoshek/mosquitto-github-action@v1
-#        with:
-#          version: '1.6'
-#          ports: '1883:1883 8883:8883'
-#          config: ${{ github.workspace }}/tests/config/local_mosquitto.conf
-#          container-name: 'local-mqtt'
-#      - name: Start 'GridWorks' Mosquitto
-#        uses: namoshek/mosquitto-github-action@v1
-#        with:
-#          version: '1.6'
-#          ports: '18831:18831'
-#          config: ${{ github.workspace }}/tests/config/gw_mosquitto.conf
-#          container-name: 'gw-mqtt'
-#      - name: Install Python 3
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: ${{ env.PYTHON_VERSION }}
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install -r gw_spaceheat/requirements/dev.txt
-#      - name: copy test_dotenv
-#        uses: canastro/copy-file-action@master
-#        with:
-#          source: "tests/config/.env-ci"
-#          target: "tests/.env-gw-spaceheat-test"
-#      - name: Run tests with pytest under coverage
-#        run: |
-#          pytest -k test_basic_atn_comm_scada_first --count 200 -x
-##          coverage run -m pytest --ignore tests/test_actors/
-##          coverage report
-##      - name: Upload coverage data
-##        uses: "actions/upload-artifact@v3"
-##        with:
-##          name: coverage-data
-##          path: ".coverage*"
+  test_awaiting_setup_and_peer_corner_cases:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     test-name: test_awaiting_setup_and_peer_corner_cases
 
-#  coverage_report:
-#    name: Combine & check coverage.
-#    runs-on: ubuntu-latest
-#    needs: tests
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-python@v2
-#        with:
-#          python-version: ${{ env.PYTHON_VERSION }}
-#      - run: python -m pip install --upgrade coverage[toml]
-#      - name: Download coverage data.
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: coverage-data
-#      - name: Report and upload
-#        run: |
-#          python -m coverage xml
-#      - name: Upload coverage report
-#        uses: codecov/codecov-action@v3.1.0
+  test_awaiting_setup__:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     test-name: test_awaiting_setup__
+
+  test_response_timeout:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     test-name: test_response_timeout
+
+  test_ping:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     test-name: test_ping
+
+  test_await_for:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     test-name: test_await_for
+
