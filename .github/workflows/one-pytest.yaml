@@ -19,37 +19,33 @@ jobs:
   one-pytest:
     runs-on: ubuntu-latest
     steps:
-#      - uses: actions/checkout@v2
-      - name: debug
-        run: pytest -k ${{ inputs.test-name }} --count ${{ inputs.count }} -x --co
-#      - uses: actions/checkout@v2
-#      - name: Start 'Local' Mosquitto
-#        uses: namoshek/mosquitto-github-action@v1
-#        with:
-#          version: '1.6'
-#          ports: '1883:1883 8883:8883'
-#          config: ${{ github.workspace }}/tests/config/local_mosquitto.conf
-#          container-name: 'local-mqtt'
-#      - name: Start 'GridWorks' Mosquitto
-#        uses: namoshek/mosquitto-github-action@v1
-#        with:
-#          version: '1.6'
-#          ports: '18831:18831'
-#          config: ${{ github.workspace }}/tests/config/gw_mosquitto.conf
-#          container-name: 'gw-mqtt'
-#      - name: Install Python 3
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: ${{ env.PYTHON_VERSION }}
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install -r gw_spaceheat/requirements/dev.txt
-#      - name: copy test_dotenv
-#        uses: canastro/copy-file-action@master
-#        with:
-#          source: "tests/config/.env-ci"
-#          target: "tests/.env-gw-spaceheat-test"
-#      - name: Run tests with pytest under coverage
-#        run: |
-#          pytest -k test_basic_atn_comm_scada_first --count 200 -x
+     - uses: actions/checkout@v2
+     - name: Start 'Local' Mosquitto
+       uses: namoshek/mosquitto-github-action@v1
+       with:
+         version: '1.6'
+         ports: '1883:1883 8883:8883'
+         config: ${{ github.workspace }}/tests/config/local_mosquitto.conf
+         container-name: 'local-mqtt'
+     - name: Start 'GridWorks' Mosquitto
+       uses: namoshek/mosquitto-github-action@v1
+       with:
+         version: '1.6'
+         ports: '18831:18831'
+         config: ${{ github.workspace }}/tests/config/gw_mosquitto.conf
+         container-name: 'gw-mqtt'
+     - name: Install Python 3
+       uses: actions/setup-python@v2
+       with:
+         python-version: ${{ env.PYTHON_VERSION }}
+     - name: Install dependencies
+       run: |
+         python -m pip install --upgrade pip
+         pip install -r gw_spaceheat/requirements/dev.txt
+     - name: copy test_dotenv
+       uses: canastro/copy-file-action@master
+       with:
+         source: "tests/config/.env-ci"
+         target: "tests/.env-gw-spaceheat-test"
+     - name: Run tests with pytest under coverage
+       run: pytest -k ${{ inputs.test-name }} --count ${{ inputs.count }} -x
