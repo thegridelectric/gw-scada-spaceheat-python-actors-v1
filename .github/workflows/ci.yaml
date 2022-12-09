@@ -40,7 +40,7 @@ jobs:
           target: "tests/.env-gw-spaceheat-test"
       - name: Run tests with pytest under coverage
         run: |
-          pytest --ignore tests/test_actors/ --count 100
+          pytest -k test_basic_atn_comm_scada_first --count 100 -x 
           coverage run -m pytest --ignore tests/test_actors/
           coverage report
       - name: Upload coverage data
