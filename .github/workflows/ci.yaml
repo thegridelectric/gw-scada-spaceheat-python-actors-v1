@@ -10,6 +10,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: calling1
         uses: ./.github-workflows/one-pytest.yaml@as/repeat
         with:
