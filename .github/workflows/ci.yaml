@@ -14,8 +14,9 @@ jobs:
       - name: ls
         run: |
           pwd
-          ls `pwd`
-          ls `pwd`/..
+          ls -a `pwd`
+          ls -a `pwd`/.github/workflows
+          ls -a `pwd`/.github/workflows/one-pytest.yaml
       - name: calling1
         uses: ./.github/workflows/one-pytest.yaml
         with:
