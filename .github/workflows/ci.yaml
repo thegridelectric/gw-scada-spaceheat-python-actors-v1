@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name ls
+        run: |
+          pwd
+          ls `pwd`
+          ls `pwd`/..
       - name: calling1
         uses: ./.github/workflows/one-pytest.yaml
         with:
