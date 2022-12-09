@@ -8,7 +8,7 @@ on:
         type: string
       count:
         required: false
-        type: int
+        type: string
         default: 100
 
 env:
