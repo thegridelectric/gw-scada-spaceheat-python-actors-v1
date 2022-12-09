@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: calling1
-        uses: gridworks/gw-scada-spaceheat-python/.github-workflows/one-pytest.yaml/as/repeats
+        uses: gridworks/gw-scada-spaceheat-python/.github-workflows/one-pytest.yaml/as/repeat
         with:
           test-name: test_mqtt_client_settings
 
       - name: calling2
-        uses: gridworks/gw-scada-spaceheat-python/.github-workflows/one-pytest.yaml/as/repeats
+        uses: gridworks/gw-scada-spaceheat-python/.github-workflows/one-pytest.yaml/as/repeat
         with:
           test-name: test_paths
           count: 3
