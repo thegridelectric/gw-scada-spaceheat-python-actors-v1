@@ -19,7 +19,7 @@ jobs:
   one-pytest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+#      - uses: actions/checkout@v2
       - name: debug
         run: pytest -k ${{ inputs.test-name }} --count ${{ inputs.count }} -x --co
 #      - uses: actions/checkout@v2
