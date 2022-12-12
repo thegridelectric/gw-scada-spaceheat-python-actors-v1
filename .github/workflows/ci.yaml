@@ -8,6 +8,17 @@ env:
   count: 100
 
 jobs:
+  test_ping:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     args: "-x ${{ env.count }} -k test_ping"
+
+  test_await_for:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     args: "-x ${{ env.count }} -k test_await_for"
+
+
 #  test_basic_atn_comm_loss:
 #    uses: ./.github/workflows/one-pytest.yaml
 #    with:
@@ -38,14 +49,4 @@ jobs:
 #   uses: ./.github/workflows/one-pytest.yaml
 #   with:
 #     args: -x  ${{ env.count }} -k test_response_timeout
-
-  test_ping:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: -x  ${{ env.count }} -k test_ping
-
-  test_await_for:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: -x  ${{ env.count }} -k test_await_for
 
