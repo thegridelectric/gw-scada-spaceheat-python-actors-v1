@@ -5,6 +5,7 @@ on:
 env:
   PYTHONPATH: gw_spaceheat:$PYTHONPATH
   PYTHON_VERSION: 3.10.6
+  count: 100
 
 jobs:
 #  test_basic_atn_comm_loss:
@@ -12,38 +13,39 @@ jobs:
 #    with:
 #      test-name: test_basic_atn_comm_loss
 #
-  test_basic_atn_comm_scada_first:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     test-name: test_basic_atn_comm_scada_first
 
-  test_basic_atn_comm_atn_first:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     test-name: test_basic_atn_comm_atn_first
-
-  test_awaiting_setup_and_peer_corner_cases:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     test-name: test_awaiting_setup_and_peer_corner_cases
-
-  test_awaiting_setup__:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     test-name: test_awaiting_setup__
-
-  test_response_timeout:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     test-name: test_response_timeout
+#  test_basic_atn_comm_scada_first:
+#   uses: ./.github/workflows/one-pytest.yaml
+#   with:
+#     args: -x --count ${{ env.count }} -k test_basic_atn_comm_scada_first
+#
+#  test_basic_atn_comm_atn_first:
+#   uses: ./.github/workflows/one-pytest.yaml
+#   with:
+#     args: -x  ${{ env.count }} -k test_basic_atn_comm_atn_first
+#
+#  test_awaiting_setup_and_peer_corner_cases:
+#   uses: ./.github/workflows/one-pytest.yaml
+#   with:
+#     args: -x  ${{ env.count }} -k test_awaiting_setup_and_peer_corner_cases
+#
+#  test_awaiting_setup__:
+#   uses: ./.github/workflows/one-pytest.yaml
+#   with:
+#     args: -x  ${{ env.count }} -k test_awaiting_setup__
+#
+#  test_response_timeout:
+#   uses: ./.github/workflows/one-pytest.yaml
+#   with:
+#     args: -x  ${{ env.count }} -k test_response_timeout
 
   test_ping:
    uses: ./.github/workflows/one-pytest.yaml
    with:
-     test-name: test_ping
+     args: -x  ${{ env.count }} -k test_ping
 
   test_await_for:
    uses: ./.github/workflows/one-pytest.yaml
    with:
-     test-name: test_await_for
+     args: -x  ${{ env.count }} -k test_await_for
 

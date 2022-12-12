@@ -3,20 +3,16 @@ name: pytest on a single test, repeatedly, using pytest-repeat
 on:
   workflow_call:
     inputs:
-      test-name:
-        required: true
-        type: string
-      count:
+      args:
         required: false
-        type: string
-        default: 100
+        default: ""
 
 env:
   PYTHONPATH: gw_spaceheat:$PYTHONPATH
   PYTHON_VERSION: 3.10.6
 
 jobs:
-  one-pytest:
+  pytest:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v2
@@ -48,4 +44,4 @@ jobs:
          source: "tests/config/.env-ci"
          target: "tests/.env-gw-spaceheat-test"
      - name: Run tests with pytest under coverage
-       run: pytest -k ${{ inputs.test-name }} --count ${{ inputs.count }} -x
+       run: pytest ${{ inputs.args }}
