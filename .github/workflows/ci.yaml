@@ -5,18 +5,19 @@ on:
 env:
   PYTHONPATH: gw_spaceheat:$PYTHONPATH
   PYTHON_VERSION: 3.10.6
-  count: 100
+  COUNT: 100
+  PREARGS: "-x --count $COUNT -k "
 
 jobs:
   test_ping:
    uses: ./.github/workflows/one-pytest.yaml
    with:
-     args: "-x ${{ env.count }} -k test_ping"
+     args: $PREARGS test_ping
 
   test_await_for:
    uses: ./.github/workflows/one-pytest.yaml
    with:
-     args: "-x ${{ env.count }} -k test_await_for"
+     args: $PREARGS test_await_for"
 
 
 #  test_basic_atn_comm_loss:
