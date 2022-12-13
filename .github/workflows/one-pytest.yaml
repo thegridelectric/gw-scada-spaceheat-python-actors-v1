@@ -3,6 +3,10 @@ name: pytest on a single test, repeatedly, using pytest-repeat
 on:
   workflow_call:
     inputs:
+      count:
+        required: false
+        type: string
+        default 100
       args:
         required: false
         default: ""
