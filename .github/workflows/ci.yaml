@@ -6,7 +6,7 @@ env:
   PYTHONPATH: gw_spaceheat:$PYTHONPATH
   PYTHON_VERSION: 3.10.6
   COUNT: 100
-  PREARGS: "-x --count $COUNT -k "
+  PREARGS: "-x --count ${{ env.COUNT}} -k "
 
 jobs:
   test_lots:
