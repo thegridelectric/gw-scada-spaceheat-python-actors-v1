@@ -5,14 +5,13 @@ on:
 env:
   PYTHONPATH: gw_spaceheat:$PYTHONPATH
   PYTHON_VERSION: 3.10.6
-  COUNT: 100
-  PREARGS: "-x --count ${{ env.COUNT}} -k "
+  PREARGS: "-x --count 100 -k "
 
 jobs:
   test_lots:
    uses: ./.github/workflows/one-pytest.yaml
    with:
-     args: -x --count $COUNT --ignore tests/test_actors/ -k "not test_await_for and not test_basic_atn_comm_loss"
+     args: -x --count 100 --ignore tests/test_actors/ -k "not test_await_for and not test_basic_atn_comm_loss"
 
 
   test_ping:
