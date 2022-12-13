@@ -5,8 +5,8 @@ on:
 env:
   PYTHONPATH: gw_spaceheat:$PYTHONPATH
   PYTHON_VERSION: 3.10.6
-  PREARGS: -x --count 100 -k
-
+  #   PREARGS: -x --count 100 -k
+  
 jobs:
   test_lots:
    uses: ./.github/workflows/one-pytest.yaml
@@ -14,44 +14,44 @@ jobs:
      args: -x --count 100 --ignore tests/test_actors/ -k "not test_await_for and not test_basic_atn_comm_loss"
 
 
-  test_ping:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: $PREARGS test_ping
+#   test_ping:
+#    uses: ./.github/workflows/one-pytest.yaml
+#    with:
+#      args: $PREARGS test_ping
 
-  test_await_for:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: $PREARGS test_await_for"
+#   test_await_for:
+#    uses: ./.github/workflows/one-pytest.yaml
+#    with:
+#      args: $PREARGS test_await_for"
 
-  test_basic_atn_comm_loss:
-    uses: ./.github/workflows/one-pytest.yaml
-    with:
-      args: $PREARGS test_basic_atn_comm_loss
+#   test_basic_atn_comm_loss:
+#     uses: ./.github/workflows/one-pytest.yaml
+#     with:
+#       args: $PREARGS test_basic_atn_comm_loss
 
 
-  test_basic_atn_comm_scada_first:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: $PREARGS test_basic_atn_comm_scada_first
+#   test_basic_atn_comm_scada_first:
+#    uses: ./.github/workflows/one-pytest.yaml
+#    with:
+#      args: $PREARGS test_basic_atn_comm_scada_first
 
-  test_basic_atn_comm_atn_first:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: $PREARGS test_basic_atn_comm_atn_first
+#   test_basic_atn_comm_atn_first:
+#    uses: ./.github/workflows/one-pytest.yaml
+#    with:
+#      args: $PREARGS test_basic_atn_comm_atn_first
 
-  test_awaiting_setup_and_peer_corner_cases:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: $PREARGS test_awaiting_setup_and_peer_corner_cases
+#   test_awaiting_setup_and_peer_corner_cases:
+#    uses: ./.github/workflows/one-pytest.yaml
+#    with:
+#      args: $PREARGS test_awaiting_setup_and_peer_corner_cases
 
-  test_awaiting_setup__:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: $PREARGS test_awaiting_setup__
+#   test_awaiting_setup__:
+#    uses: ./.github/workflows/one-pytest.yaml
+#    with:
+#      args: $PREARGS test_awaiting_setup__
 
-  test_response_timeout:
-   uses: ./.github/workflows/one-pytest.yaml
-   with:
-     args: $PREARGS test_response_timeout
+#   test_response_timeout:
+#    uses: ./.github/workflows/one-pytest.yaml
+#    with:
+#      args: $PREARGS test_response_timeout
 
