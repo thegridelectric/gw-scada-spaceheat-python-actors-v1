@@ -9,6 +9,12 @@ env:
   PREARGS: "-x --count $COUNT -k "
 
 jobs:
+  test_lots:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     args: -x --count $COUNT --ignore tests/test_actors/ -k "not test_await_for and not test_basic_atn_comm_loss"
+
+
   test_ping:
    uses: ./.github/workflows/one-pytest.yaml
    with:
@@ -19,35 +25,34 @@ jobs:
    with:
      args: $PREARGS test_await_for"
 
+  test_basic_atn_comm_loss:
+    uses: ./.github/workflows/one-pytest.yaml
+    with:
+      args: $PREARGS test_basic_atn_comm_loss
 
-#  test_basic_atn_comm_loss:
-#    uses: ./.github/workflows/one-pytest.yaml
-#    with:
-#      test-name: test_basic_atn_comm_loss
-#
 
-#  test_basic_atn_comm_scada_first:
-#   uses: ./.github/workflows/one-pytest.yaml
-#   with:
-#     args: -x --count ${{ env.count }} -k test_basic_atn_comm_scada_first
-#
-#  test_basic_atn_comm_atn_first:
-#   uses: ./.github/workflows/one-pytest.yaml
-#   with:
-#     args: -x  ${{ env.count }} -k test_basic_atn_comm_atn_first
-#
-#  test_awaiting_setup_and_peer_corner_cases:
-#   uses: ./.github/workflows/one-pytest.yaml
-#   with:
-#     args: -x  ${{ env.count }} -k test_awaiting_setup_and_peer_corner_cases
-#
-#  test_awaiting_setup__:
-#   uses: ./.github/workflows/one-pytest.yaml
-#   with:
-#     args: -x  ${{ env.count }} -k test_awaiting_setup__
-#
-#  test_response_timeout:
-#   uses: ./.github/workflows/one-pytest.yaml
-#   with:
-#     args: -x  ${{ env.count }} -k test_response_timeout
+  test_basic_atn_comm_scada_first:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     args: $PREARGS test_basic_atn_comm_scada_first
+
+  test_basic_atn_comm_atn_first:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     args: $PREARGS test_basic_atn_comm_atn_first
+
+  test_awaiting_setup_and_peer_corner_cases:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     args: $PREARGS test_awaiting_setup_and_peer_corner_cases
+
+  test_awaiting_setup__:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     args: $PREARGS test_awaiting_setup__
+
+  test_response_timeout:
+   uses: ./.github/workflows/one-pytest.yaml
+   with:
+     args: $PREARGS test_response_timeout
 
