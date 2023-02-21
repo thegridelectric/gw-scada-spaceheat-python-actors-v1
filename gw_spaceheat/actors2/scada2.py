@@ -351,7 +351,7 @@ class Scada2(ScadaInterface, Proactor):
     def _process_boolean_dispatch(
         self, payload: GtDispatchBoolean
     ) -> ScadaCmdDiagnostic:
-        ba = self._layout.node(payload.AboutNodeAlias)
+        ba = self._layout.node(payload.AboutNodeName)
         if not isinstance(ba.component, BooleanActuatorComponent):
             return ScadaCmdDiagnostic.DISPATCH_NODE_NOT_BOOLEAN_ACTUATOR
         self._communicators[ba.alias].process_message(
