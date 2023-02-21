@@ -198,7 +198,7 @@ class Scada(ScadaBase):
 
         my_subscriptions.append(
             Subscription(
-                Topic=f"{self.my_home_alone().alias}/{GtDispatchBooleanLocal_Maker.type_name}",
+                Topic=f"{self.my_home_alone().alias}/{GtDispatchBooleanLocal_Maker.type_alias}",
                 Qos=QOS.AtLeastOnce,
             )
         )
