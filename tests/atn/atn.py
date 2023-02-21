@@ -208,7 +208,7 @@ class Atn2(ActorInterface, Proactor):
                 self._publish_to_scada(message.Payload.tuple.asdict())
             case GtDispatchBoolean_Maker():
                 path_dbg |= 0x00000002
-                self._publish_to_scada(message.Payload.tuple.asdict())
+                self._publish_to_scada(message.Payload.tuple.as_dict())
             case ScadaDBG():
                 path_dbg |= 0x00000004
                 self._publish_to_scada(message.Payload)
