@@ -368,7 +368,7 @@ class Atn2(ActorInterface, Proactor):
                     from_g_node_instance_id=self.layout.atn_g_node_id,
                     relay_state=int(state),
                     send_time_unix_ms=int(time.time() * 1000),
-                ).tuple,
+                ),
             )
         )
 
