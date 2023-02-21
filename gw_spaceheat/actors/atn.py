@@ -131,8 +131,8 @@ class Atn(CloudBase):
         payload = GtDispatchBoolean_Maker(
             to_g_node_alias=self.scada_g_node_alias,
             from_g_node_alias=self.atn_g_node_alias,
-            from_g_node_id=self.atn_g_node_id,
-            about_node_alias=ba.alias,
+            from_g_node_instance_id=self.atn_g_node_id,
+            about_node_name=ba.alias,
             relay_state=1,
             send_time_unix_ms=int(time.time() * 1000),
         ).tuple
@@ -144,8 +144,8 @@ class Atn(CloudBase):
         payload = GtDispatchBoolean_Maker(
             to_g_node_alias=self.scada_g_node_alias,
             from_g_node_alias=self.atn_g_node_alias,
-            from_g_node_id=self.atn_g_node_id,
-            about_node_alias=ba.alias,
+            from_g_node_instance_id=self.atn_g_node_id,
+            about_node_name=ba.alias,
             relay_state=0,
             send_time_unix_ms=int(time.time() * 1000),
         ).tuple

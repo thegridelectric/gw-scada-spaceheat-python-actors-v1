@@ -32,7 +32,7 @@ class BooleanActuator(ActorBase):
 
     def subscriptions(self) -> List[Subscription]:
         my_subscriptions = [
-            Subscription(Topic=f"a.s/{GtDispatchBooleanLocal_Maker.type_alias}", Qos=QOS.AtMostOnce)
+            Subscription(Topic=f"a.s/{GtDispatchBooleanLocal_Maker.type_name}", Qos=QOS.AtMostOnce)
         ]
         return my_subscriptions
 

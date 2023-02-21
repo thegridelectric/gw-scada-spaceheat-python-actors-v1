@@ -378,10 +378,10 @@ class SimpleOrangeAtn(ActorInterface, Proactor):
                 Src=self.name,
                 Dst=self.name,
                 Payload=GtDispatchBoolean_Maker(
-                    about_node_alias=name,
+                    about_node_name=name,
                     to_g_node_alias=self.layout.scada_g_node_alias,
                     from_g_node_alias=self.layout.atn_g_node_alias,
-                    from_g_node_id=self.layout.atn_g_node_id,
+                    from_g_node_instance_id=self.layout.atn_g_node_id,
                     relay_state=int(state),
                     send_time_unix_ms=int(time.time() * 1000),
                 ),

@@ -209,6 +209,10 @@ class HardwareLayout:
         return self.layout["MyAtomicTNodeGNode"]["GNodeId"]
 
     @cached_property
+    def atn_g_node_instance_id(self):
+        return self.layout["MyAtomicTNodeGNode"]["GNodeId"]
+
+    @cached_property
     def terminal_asset_g_node_alias(self):
         my_atn_as_dict = self.layout["MyTerminalAssetGNode"]
         return my_atn_as_dict["Alias"]

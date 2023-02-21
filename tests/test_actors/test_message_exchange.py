@@ -73,7 +73,7 @@ def test_message_exchange(tmp_path, monkeypatch):
             lambda: atn.snapshot_received > 0, 10, f"cli_resp_received == 0 {atn.summary_str()}"
         )
 
-        topic = gw_mqtt_topic_encode(f"{scada.atn_g_node_alias}/{GtDispatchBoolean_Maker.type_alias}")
+        topic = gw_mqtt_topic_encode(f"{scada.atn_g_node_alias}/{GtDispatchBoolean_Maker.type_name}")
 
         wait_for(
             lambda: scada.num_received_by_topic["a.elt1.relay/gt.telemetry.110"] > 0,

@@ -11,12 +11,18 @@ from gwproto.messages import  GtShStatus_Maker
 from gwproto.messages import  SnapshotSpaceheat_Maker
 from gwproto.messages import  GtShTelemetryFromMultipurposeSensor_Maker
 from gwproto.messages import  GtTelemetry_Maker
+from gwproto.messages import HeartbeatB_Maker
 
 TypeMakerByAliasDict: Dict[str, GtTelemetry_Maker] = {}
+
+new_makers: List[HeartbeatB_Maker] = [
+    GtDispatchBoolean_Maker,
+    HeartbeatB_Maker,
+]
+
 schema_makers: List[GtTelemetry_Maker] = [
     GsDispatch_Maker,
     GsPwr_Maker,
-    GtDispatchBoolean_Maker,
     GtDispatchBooleanLocal_Maker,
     GtDriverBooleanactuatorCmd_Maker,
     GtShCliAtnCmd_Maker,
@@ -29,4 +35,7 @@ schema_makers: List[GtTelemetry_Maker] = [
 
 for maker in schema_makers:
     TypeMakerByAliasDict[maker.type_alias] = maker
+
+for maker in new_makers:
+    TypeMakerByAliasDict[maker.type_name] = maker
 
