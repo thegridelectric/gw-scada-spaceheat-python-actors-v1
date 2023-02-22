@@ -93,7 +93,7 @@ class GtDispatchBooleanLocalMessage(Message[GtDispatchBooleanLocal]):
             Header=Header(
                 Src=src,
                 Dst=dst,
-                MessageType=payload.TypeAlias,
+                MessageType=payload.TypeName,
             ),
             Payload=payload,
         )

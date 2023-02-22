@@ -17,13 +17,13 @@ TypeMakerByAliasDict: Dict[str, GtTelemetry_Maker] = {}
 
 new_makers: List[HeartbeatB_Maker] = [
     GtDispatchBoolean_Maker,
+    GtDispatchBooleanLocal_Maker,
     HeartbeatB_Maker,
 ]
 
 schema_makers: List[GtTelemetry_Maker] = [
     GsDispatch_Maker,
     GsPwr_Maker,
-    GtDispatchBooleanLocal_Maker,
     GtDriverBooleanactuatorCmd_Maker,
     GtShCliAtnCmd_Maker,
     TelemetrySnapshotSpaceheat_Maker,
