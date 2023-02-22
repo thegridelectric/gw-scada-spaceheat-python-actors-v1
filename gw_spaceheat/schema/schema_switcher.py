@@ -5,6 +5,7 @@ from gwproto.messages import  GsPwr_Maker
 from gwproto.messages import  GtDispatchBoolean_Maker
 from gwproto.messages import  GtDispatchBooleanLocal_Maker
 from gwproto.messages import  GtDriverBooleanactuatorCmd_Maker
+from gwproto.messages import GtShBooleanactuatorCmdStatus_Maker
 from gwproto.messages import  GtShCliAtnCmd_Maker
 from gwproto.messages import  TelemetrySnapshotSpaceheat_Maker
 from gwproto.messages import  GtShStatus_Maker
@@ -19,12 +20,13 @@ new_makers: List[HeartbeatB_Maker] = [
     GtDispatchBoolean_Maker,
     GtDispatchBooleanLocal_Maker,
     HeartbeatB_Maker,
+    GtDriverBooleanactuatorCmd_Maker,
+    GtShBooleanactuatorCmdStatus_Maker,
 ]
 
 schema_makers: List[GtTelemetry_Maker] = [
     GsDispatch_Maker,
     GsPwr_Maker,
-    GtDriverBooleanactuatorCmd_Maker,
     GtShCliAtnCmd_Maker,
     TelemetrySnapshotSpaceheat_Maker,
     GtShStatus_Maker,

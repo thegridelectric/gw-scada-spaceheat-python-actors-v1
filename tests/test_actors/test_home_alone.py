@@ -30,7 +30,8 @@ def test_homealone_small():
                 "AboutNodeName": "a.elt1.relay",
                 "RelayStateCommandList": [1],
                 "CommandTimeUnixMsList": [1656945413464],
-                "TypeAlias": "gt.sh.booleanactuator.cmd.status.100",
+                "TypeName": "gt.sh.booleanactuator.cmd.status",
+                "Version": "100",
             }
         ],
         "FromGNodeAlias": "dw1.isone.ct.newhaven.orange1.ta.scada",

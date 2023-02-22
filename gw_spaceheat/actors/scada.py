@@ -221,7 +221,7 @@ class Scada(ScadaBase):
         for node in self.my_boolean_actuators():
             my_subscriptions.append(
                 Subscription(
-                    Topic=f"{node.alias}/{GtDriverBooleanactuatorCmd_Maker.type_alias}",
+                    Topic=f"{node.alias}/{GtDriverBooleanactuatorCmd_Maker.type_name}",
                     Qos=QOS.AtLeastOnce,
                 )
             )
