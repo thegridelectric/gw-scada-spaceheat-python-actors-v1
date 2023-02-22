@@ -41,7 +41,7 @@ Commenting out for now.
 #         print(atn.latest_cli_response_payload.Snapshot.AboutNodeAliasList)
 #         snapshot = atn.latest_cli_response_payload.Snapshot
 #         assert snapshot.AboutNodeAliasList == ["a.elt1.relay"]
-#         assert snapshot.TelemetryNameList == [TelemetryName.RELAY_STATE]
+#         assert snapshot.TelemetryNameList == [TelemetryName.RelayState]
 #         assert len(snapshot.ValueList) == 1
 #         idx = snapshot.AboutNodeAliasList.index("a.elt1.relay")
 #         assert snapshot.ValueList[idx] == 0

@@ -77,7 +77,7 @@ def test_scada2_small():
     tt = TelemetryTuple(
         AboutNode=layout.node("a.elt1"),
         SensorNode=layout.node("a.m"),
-        TelemetryName=TelemetryName.CURRENT_RMS_MICRO_AMPS,
+        TelemetryName=TelemetryName.CurrentRmsMicroAmps,
     )
     scada._data.recent_values_from_multipurpose_sensor[tt] = [72000]
     scada._data.recent_read_times_unix_ms_from_multipurpose_sensor[tt] = [
@@ -193,7 +193,7 @@ async def test_scada2_relay_dispatch(tmp_path, monkeypatch, request):
             assert len(status.SimpleTelemetryList) == 1
             assert status.SimpleTelemetryList[0].ValueList == [0]
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay2.node.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
 
             # Verify relay is off
             assert atn.data.latest_snapshot is None
@@ -228,7 +228,7 @@ async def test_scada2_relay_dispatch(tmp_path, monkeypatch, request):
             assert status.SimpleTelemetryList[0].ValueList[-1] == 1
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay2.alias
             assert (
-                status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+                status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
             )
             assert len(status.BooleanactuatorCmdList) == 1
             assert status.BooleanactuatorCmdList[0].RelayStateCommandList == [1]
@@ -275,7 +275,7 @@ async def test_scada2_relay_dispatch(tmp_path, monkeypatch, request):
             assert len(status.SimpleTelemetryList) == 1
             assert status.SimpleTelemetryList[0].ValueList[-1] == 1
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay2.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
             assert len(status.BooleanactuatorCmdList) == 1
             assert status.BooleanactuatorCmdList[0].RelayStateCommandList == [1]
             assert status.BooleanactuatorCmdList[0].ShNodeAlias == relay2.alias
@@ -444,9 +444,9 @@ async def test_scada2_status_content_dynamics(tmp_path, monkeypatch, request):
             assert len(status.SimpleTelemetryList) == 2
             assert status.SimpleTelemetryList[0].ValueList[-1] == 1
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay.node.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
             assert status.SimpleTelemetryList[1].ShNodeAlias == thermo.node.alias
-            assert status.SimpleTelemetryList[1].TelemetryName == TelemetryName.WATER_TEMP_F_TIMES1000
+            assert status.SimpleTelemetryList[1].TelemetryName == TelemetryName.WaterTempFTimes1000
             assert len(status.BooleanactuatorCmdList) == 1
             assert status.BooleanactuatorCmdList[0].RelayStateCommandList == [1]
             assert status.BooleanactuatorCmdList[0].ShNodeAlias == relay.node.alias
@@ -477,9 +477,9 @@ async def test_scada2_status_content_dynamics(tmp_path, monkeypatch, request):
             assert len(status.SimpleTelemetryList) == 2
             assert status.SimpleTelemetryList[0].ValueList == [0, 1]
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay.node.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
             assert status.SimpleTelemetryList[1].ShNodeAlias == thermo.node.alias
-            assert status.SimpleTelemetryList[1].TelemetryName == TelemetryName.WATER_TEMP_F_TIMES1000
+            assert status.SimpleTelemetryList[1].TelemetryName == TelemetryName.WaterTempFTimes1000
             assert len(status.BooleanactuatorCmdList) == 1
             assert status.BooleanactuatorCmdList[0].RelayStateCommandList == [1]
             assert status.BooleanactuatorCmdList[0].ShNodeAlias == relay.node.alias

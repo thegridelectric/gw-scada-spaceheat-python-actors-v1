@@ -288,7 +288,7 @@ class SimpleOrangeAtn(ActorInterface, Proactor):
             for idx in range(len(snapshot.Snapshot.AboutNodeAliasList)):
                 if (
                     snapshot.Snapshot.AboutNodeAliasList[idx] == node.alias
-                    and snapshot.Snapshot.TelemetryNameList[idx] == TelemetryName.RELAY_STATE
+                    and snapshot.Snapshot.TelemetryNameList[idx] == TelemetryName.RelayState
                 ):
                     possible_indices.append(idx)
             if len(possible_indices) != 1:

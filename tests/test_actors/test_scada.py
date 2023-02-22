@@ -94,7 +94,7 @@ def test_scada_small():
         about_node_alias_list=["a.unknown"],
         scada_read_time_unix_ms=int(time.time() * 1000),
         value_list=[17000],
-        telemetry_name_list=[TelemetryName.CURRENT_RMS_MICRO_AMPS],
+        telemetry_name_list=[TelemetryName.CurrentRmsMicroAmps],
     ).tuple
 
     # throws error if AboutNode is unknown
@@ -122,7 +122,7 @@ def test_scada_small():
         about_node_alias_list=["a.tank"],
         scada_read_time_unix_ms=int(time.time() * 1000),
         value_list=[17000],
-        telemetry_name_list=[TelemetryName.CURRENT_RMS_MICRO_AMPS],
+        telemetry_name_list=[TelemetryName.CurrentRmsMicroAmps],
     ).tuple
 
     # throws error if it does not track the telemetry tuple. In this
@@ -138,7 +138,7 @@ def test_scada_small():
         scada_read_time_unix_ms=int(time.time() * 1000),
         value=67000,
         exponent=3,
-        name=TelemetryName.WATER_TEMP_F_TIMES1000,
+        name=TelemetryName.WaterTempFTimes1000,
     ).tuple
 
     # throws error if it receives a GtTelemetry reading
@@ -162,7 +162,7 @@ def test_scada_small():
     tt = TelemetryTuple(
         AboutNode=layout.node("a.elt1"),
         SensorNode=layout.node("a.m"),
-        TelemetryName=TelemetryName.CURRENT_RMS_MICRO_AMPS,
+        TelemetryName=TelemetryName.CurrentRmsMicroAmps,
     )
     scada.recent_values_from_multipurpose_sensor[tt] = [72000]
     scada.recent_read_times_unix_ms_from_multipurpose_sensor[tt] = [int(time.time() * 1000)]
@@ -330,9 +330,9 @@ def test_scada_status_content_dynamics():
             assert len(status.SimpleTelemetryList) == 2
             assert status.SimpleTelemetryList[0].ValueList == [1]
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay.node.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
             assert status.SimpleTelemetryList[1].ShNodeAlias == thermo.node.alias
-            assert status.SimpleTelemetryList[1].TelemetryName == TelemetryName.WATER_TEMP_F_TIMES1000
+            assert status.SimpleTelemetryList[1].TelemetryName == TelemetryName.WaterTempFTimes1000
             assert len(status.BooleanactuatorCmdList) == 1
             assert status.BooleanactuatorCmdList[0].RelayStateCommandList == [1]
             assert status.BooleanactuatorCmdList[0].ShNodeAlias == relay.node.alias
@@ -361,9 +361,9 @@ def test_scada_status_content_dynamics():
             assert len(status.SimpleTelemetryList) == 2
             assert status.SimpleTelemetryList[0].ValueList == [1]
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay.node.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
             assert status.SimpleTelemetryList[1].ShNodeAlias == thermo.node.alias
-            assert status.SimpleTelemetryList[1].TelemetryName == TelemetryName.WATER_TEMP_F_TIMES1000
+            assert status.SimpleTelemetryList[1].TelemetryName == TelemetryName.WaterTempFTimes1000
             assert len(status.BooleanactuatorCmdList) == 1
             assert status.BooleanactuatorCmdList[0].RelayStateCommandList == [1]
             assert status.BooleanactuatorCmdList[0].ShNodeAlias == relay.node.alias
@@ -433,7 +433,7 @@ def test_scada_relay_dispatch():
             assert len(status.SimpleTelemetryList) == 1
             assert status.SimpleTelemetryList[0].ValueList == [0]
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay.node.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
 
             # Turn on the relay.
             atn.turn_on(relay.node)
@@ -453,7 +453,7 @@ def test_scada_relay_dispatch():
             assert len(status.SimpleTelemetryList) == 1
             assert status.SimpleTelemetryList[0].ValueList == [0, 1]
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay.node.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
             assert len(status.BooleanactuatorCmdList) == 1
             assert status.BooleanactuatorCmdList[0].RelayStateCommandList == [1]
             assert status.BooleanactuatorCmdList[0].ShNodeAlias == relay.node.alias
@@ -479,7 +479,7 @@ def test_scada_relay_dispatch():
             assert len(status.SimpleTelemetryList) == 1
             assert status.SimpleTelemetryList[0].ValueList == [0, 1]
             assert status.SimpleTelemetryList[0].ShNodeAlias == relay.node.alias
-            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RELAY_STATE
+            assert status.SimpleTelemetryList[0].TelemetryName == TelemetryName.RelayState
             assert len(status.BooleanactuatorCmdList) == 1
             assert status.BooleanactuatorCmdList[0].RelayStateCommandList == [1]
             assert status.BooleanactuatorCmdList[0].ShNodeAlias == relay.node.alias

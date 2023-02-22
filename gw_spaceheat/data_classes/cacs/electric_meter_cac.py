@@ -34,13 +34,13 @@ class ElectricMeterCac(ComponentAttributeClass):
 
     def telemetry_name_list(self):
         if self.make_model == MakeModel.GRIDWORKS__SIMPM1:
-            return [TelemetryName.POWER_W, TelemetryName.CURRENT_RMS_MICRO_AMPS]
+            return [TelemetryName.PowerW, TelemetryName.CurrentRmsMicroAmps]
         elif self.make_model == MakeModel.OPENENERGY__EMONPI:
-            return [TelemetryName.POWER_W]
+            return [TelemetryName.PowerW]
         elif self.make_model == MakeModel.SCHNEIDERELECTRIC__IEM3455:
-            return [TelemetryName.POWER_W, TelemetryName.CURRENT_RMS_MICRO_AMPS]
+            return [TelemetryName.PowerW, TelemetryName.CurrentRmsMicroAmps]
         else:
-            return [TelemetryName.POWER_W]
+            return [TelemetryName.PowerW]
 
     def __repr__(self):
         return f"{self.make_model.value} {self.display_name}"

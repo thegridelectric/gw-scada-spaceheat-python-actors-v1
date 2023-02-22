@@ -205,7 +205,7 @@ class Atn2(ActorInterface, Proactor):
         match message.Payload:
             case GtShCliAtnCmd_Maker():
                 path_dbg |= 0x00000001
-                self._publish_to_scada(message.Payload.tuple.asdict())
+                self._publish_to_scada(message.Payload.tuple.as_dict())
             case GtDispatchBoolean_Maker():
                 path_dbg |= 0x00000002
                 self._publish_to_scada(message.Payload.tuple.as_dict())
@@ -261,7 +261,7 @@ class Atn2(ActorInterface, Proactor):
             for idx in range(len(snapshot.Snapshot.AboutNodeAliasList)):
                 if (
                     snapshot.Snapshot.AboutNodeAliasList[idx] == node.alias
-                    and snapshot.Snapshot.TelemetryNameList[idx] == TelemetryName.RELAY_STATE
+                    and snapshot.Snapshot.TelemetryNameList[idx] == TelemetryName.RelayState
                 ):
                     possible_indices.append(idx)
             if len(possible_indices) != 1:
@@ -281,8 +281,8 @@ class Atn2(ActorInterface, Proactor):
         s = "\n\nSnapshot received:\n"
         for i in range(len(snapshot.Snapshot.AboutNodeAliasList)):
             telemetry_name = snapshot.Snapshot.TelemetryNameList[i]
-            if (telemetry_name == TelemetryName.WATER_TEMP_C_TIMES1000
-               or telemetry_name == TelemetryName.WATER_TEMP_C_TIMES1000.value
+            if (telemetry_name == TelemetryName.WaterTempCTimes1000
+               or telemetry_name == TelemetryName.WaterTempCTimes1000.value
                     ):
                 extra = f"{snapshot.Snapshot.ValueList[i]/1000:5.2f} C"
             else:

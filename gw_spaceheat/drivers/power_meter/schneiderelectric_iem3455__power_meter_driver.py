@@ -65,4 +65,4 @@ class SchneiderElectricIem3455_PowerMeterDriver(PowerMeterDriver):
         raise NotImplementedError
 
     def telemetry_name_list(self) -> List[TelemetryName]:
-        return [TelemetryName.CURRENT_RMS_MICRO_AMPS]
+        return [TelemetryName.CurrentRmsMicroAmps]

@@ -22,12 +22,12 @@ new_makers: List[HeartbeatB_Maker] = [
     HeartbeatB_Maker,
     GtDriverBooleanactuatorCmd_Maker,
     GtShBooleanactuatorCmdStatus_Maker,
+    GtShCliAtnCmd_Maker,
 ]
 
 schema_makers: List[GtTelemetry_Maker] = [
     GsDispatch_Maker,
     GsPwr_Maker,
-    GtShCliAtnCmd_Maker,
     TelemetrySnapshotSpaceheat_Maker,
     GtShStatus_Maker,
     SnapshotSpaceheat_Maker,

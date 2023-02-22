@@ -135,7 +135,7 @@ class PowerMeter(ActorBase):
             current_config = TelemetryReportingConfig_Maker(
                 about_node_name=about_node.alias,
                 report_on_change=True,
-                telemetry_name=TelemetryName.CURRENT_RMS_MICRO_AMPS,
+                telemetry_name=TelemetryName.CurrentRmsMicroAmps,
                 unit=Unit.AMPS_RMS,
                 nameplate_max_value=1000,
                 exponent=6,
@@ -145,7 +145,7 @@ class PowerMeter(ActorBase):
             tt = TelemetryTuple(
                 AboutNode=about_node,
                 SensorNode=self.node,
-                TelemetryName=TelemetryName.CURRENT_RMS_MICRO_AMPS,
+                TelemetryName=TelemetryName.CurrentRmsMicroAmps,
             )
             eq_reporting_config_list.append(current_config)
             self.eq_reporting_config[tt] = current_config
@@ -153,7 +153,7 @@ class PowerMeter(ActorBase):
             power_config = TelemetryReportingConfig_Maker(
                 about_node_name=about_node.alias,
                 report_on_change=True,
-                telemetry_name=TelemetryName.POWER_W,
+                telemetry_name=TelemetryName.PowerW,
                 unit=Unit.W,
                 nameplate_max_value=1000,
                 exponent=0,
@@ -162,7 +162,7 @@ class PowerMeter(ActorBase):
             ).tuple
             eq_reporting_config_list.append(power_config)
             tt = TelemetryTuple(
-                AboutNode=about_node, SensorNode=self.node, TelemetryName=TelemetryName.POWER_W
+                AboutNode=about_node, SensorNode=self.node, TelemetryName=TelemetryName.PowerW
             )
             self.eq_reporting_config[tt] = power_config
 
@@ -183,7 +183,7 @@ class PowerMeter(ActorBase):
             current_tt = TelemetryTuple(
                 AboutNode=about_node,
                 SensorNode=self.node,
-                TelemetryName=TelemetryName.CURRENT_RMS_MICRO_AMPS,
+                TelemetryName=TelemetryName.CurrentRmsMicroAmps,
             )
             nameplate_current_amps = self.get_resistive_heater_nameplate_current_amps(
                 node=about_node
@@ -191,7 +191,7 @@ class PowerMeter(ActorBase):
             response_dict[current_tt] = int(10**6 * nameplate_current_amps)
 
             power_tt = TelemetryTuple(
-                AboutNode=about_node, SensorNode=self.node, TelemetryName=TelemetryName.POWER_W
+                AboutNode=about_node, SensorNode=self.node, TelemetryName=TelemetryName.PowerW
             )
             nameplate_power_w = self.get_resistive_heater_nameplate_power_w(node=about_node)
             response_dict[power_tt] = int(nameplate_power_w)

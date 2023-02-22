@@ -30,4 +30,4 @@ class BooleanActuatorCac(ComponentAttributeClass):
 
     @property
     def telemetry_name(self):
-        return TelemetryName.RELAY_STATE
+        return TelemetryName.RelayState

@@ -111,12 +111,12 @@ class DriverThreadSetupHelper:
                 TelemetryTuple(
                     AboutNode=about_node,
                     SensorNode=self.node,
-                    TelemetryName=TelemetryName.CURRENT_RMS_MICRO_AMPS,
+                    TelemetryName=TelemetryName.CurrentRmsMicroAmps,
                 )
             ] = TelemetryReportingConfig_Maker(
                 about_node_name=about_node.alias,
                 report_on_change=True,
-                telemetry_name=TelemetryName.CURRENT_RMS_MICRO_AMPS,
+                telemetry_name=TelemetryName.CurrentRmsMicroAmps,
                 unit=Unit.AMPS_RMS,
                 exponent=6,
                 sample_period_s=self.settings.seconds_per_report,
@@ -127,12 +127,12 @@ class DriverThreadSetupHelper:
                 TelemetryTuple(
                     AboutNode=about_node,
                     SensorNode=self.node,
-                    TelemetryName=TelemetryName.POWER_W,
+                    TelemetryName=TelemetryName.PowerW,
                 )
             ] = TelemetryReportingConfig_Maker(
                 about_node_name=about_node.alias,
                 report_on_change=True,
-                telemetry_name=TelemetryName.POWER_W,
+                telemetry_name=TelemetryName.PowerW,
                 unit=Unit.W,
                 exponent=0,
                 sample_period_s=self.settings.seconds_per_report,
@@ -207,7 +207,7 @@ class DriverThreadSetupHelper:
             current_tt = TelemetryTuple(
                 AboutNode=about_node,
                 SensorNode=self.node,
-                TelemetryName=TelemetryName.CURRENT_RMS_MICRO_AMPS,
+                TelemetryName=TelemetryName.CurrentRmsMicroAmps,
             )
             nameplate_current_amps = self.get_resistive_heater_nameplate_current_amps(
                 node=about_node
@@ -217,7 +217,7 @@ class DriverThreadSetupHelper:
             power_tt = TelemetryTuple(
                 AboutNode=about_node,
                 SensorNode=self.node,
-                TelemetryName=TelemetryName.POWER_W,
+                TelemetryName=TelemetryName.PowerW,
             )
             nameplate_power_w = self.get_resistive_heater_nameplate_power_w(
                 node=about_node

@@ -335,7 +335,7 @@ class Scada(ScadaBase):
                 Qos=QOS.AtLeastOnce,
             ),
             Subscription(
-                Topic=f"{self.atn_g_node_alias}/{GtShCliAtnCmd_Maker.type_alias}",
+                Topic=f"{self.atn_g_node_alias}/{GtShCliAtnCmd_Maker.type_name}",
                 Qos=QOS.AtLeastOnce,
             ),
         ]

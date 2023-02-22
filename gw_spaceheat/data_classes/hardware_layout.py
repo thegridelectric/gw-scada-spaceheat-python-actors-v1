@@ -240,7 +240,7 @@ class HardwareLayout:
                 TelemetryTuple(
                     AboutNode=node,
                     SensorNode=self.power_meter_node,
-                    TelemetryName=TelemetryName.POWER_W,
+                    TelemetryName=TelemetryName.PowerW,
                 )
             ]
         return telemetry_tuples

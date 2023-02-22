@@ -190,9 +190,9 @@ class GridworksTsnap1_MultipurposeSensorDriver(MultipurposeSensorDriver):
         self.telemetry_name_list = component.cac.telemetry_name_list
 
     def start(self) -> Result[DriverResult[bool], Exception]:
-        if set(self.telemetry_name_list) != {TelemetryName.WATER_TEMP_C_TIMES1000}:
+        if set(self.telemetry_name_list) != {TelemetryName.WaterTempCTimes1000}:
             return Err(TSnap1WrongTelemetryList(
-                {TelemetryName.WATER_TEMP_C_TIMES1000},
+                {TelemetryName.WaterTempCTimes1000},
                 self.telemetry_name_list
             ))
 
@@ -257,7 +257,7 @@ class GridworksTsnap1_MultipurposeSensorDriver(MultipurposeSensorDriver):
         self, channel_telemetry_list: List[TelemetrySpec]
     ) -> Result[DriverResult[Dict[TelemetrySpec, int]], Exception]:
         for ts in channel_telemetry_list:
-            if not ts.Type == TelemetryName.WATER_TEMP_C_TIMES1000:
+            if not ts.Type == TelemetryName.WaterTempCTimes1000:
                 return Err(TSnap1ComponentMisconfigured(str(ts)))
         driver_result = DriverResult[Dict[TelemetrySpec, int]]({})
         for ts in channel_telemetry_list:
