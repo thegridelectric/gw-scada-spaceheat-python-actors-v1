@@ -48,7 +48,7 @@ class GtTelemetryMessage(Message[GtTelemetry]):
             Header=Header(
                 Src=src,
                 Dst=dst,
-                MessageType=payload.TypeAlias,
+                MessageType=payload.TypeName,
             ),
             Payload=payload,
         )
@@ -111,7 +111,7 @@ class GsPwrMessage(Message[GsPwr]):
             Header=Header(
                 Src=src,
                 Dst=dst,
-                MessageType=payload.TypeAlias,
+                MessageType=payload.TypeName,
             ),
             Payload=payload,
         )
@@ -136,7 +136,7 @@ class MultipurposeSensorTelemetryMessage(Message[GtShTelemetryFromMultipurposeSe
             Header=Header(
                 Src=src,
                 Dst=dst,
-                MessageType=payload.TypeAlias,
+                MessageType=payload.TypeName,
             ),
             Payload=payload,
         )

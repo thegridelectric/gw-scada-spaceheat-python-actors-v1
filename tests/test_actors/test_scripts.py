@@ -64,8 +64,8 @@ async def test_run_local2(tmp_path, monkeypatch, request):
     monkeypatch.setenv("SCADA_SECONDS_PER_REPORT", "2")
     settings = ScadaSettings()
     assert settings.seconds_per_report == 2
-    status_topic = GtShStatus_Maker.type_alias
-    snapshot_topic = SnapshotSpaceheat_Maker.type_alias
+    status_topic = GtShStatus_Maker.type_name
+    snapshot_topic = SnapshotSpaceheat_Maker.type_name
 
     class Fragment(ProtocolFragment):
 

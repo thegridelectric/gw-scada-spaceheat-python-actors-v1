@@ -46,11 +46,11 @@ class ScadaRecorder(Scada):
 
     @property
     def status_topic(self) -> str:
-        return gw_mqtt_topic_encode(f"{self.scada_g_node_alias}/{GtShStatus_Maker.type_alias}")
+        return gw_mqtt_topic_encode(f"{self.scada_g_node_alias}/{GtShStatus_Maker.type_name}")
 
     @property
     def snapshot_topic(self) -> str:
-        return gw_mqtt_topic_encode(f"{self.scada_g_node_alias}/{SnapshotSpaceheat_Maker.type_alias}")
+        return gw_mqtt_topic_encode(f"{self.scada_g_node_alias}/{SnapshotSpaceheat_Maker.type_name}")
 
     @property
     def last_5_cron_s(self):

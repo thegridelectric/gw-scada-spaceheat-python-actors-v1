@@ -16,16 +16,14 @@ from gwproto.messages import HeartbeatB_Maker
 
 TypeMakerByAliasDict: Dict[str, GtTelemetry_Maker] = {}
 
-new_makers: List[HeartbeatB_Maker] = [
+
+schema_makers: List[GtTelemetry_Maker] = [
     GtDispatchBoolean_Maker,
     GtDispatchBooleanLocal_Maker,
     HeartbeatB_Maker,
     GtDriverBooleanactuatorCmd_Maker,
     GtShBooleanactuatorCmdStatus_Maker,
     GtShCliAtnCmd_Maker,
-]
-
-schema_makers: List[GtTelemetry_Maker] = [
     GsDispatch_Maker,
     GsPwr_Maker,
     TelemetrySnapshotSpaceheat_Maker,
@@ -36,8 +34,5 @@ schema_makers: List[GtTelemetry_Maker] = [
 ]
 
 for maker in schema_makers:
-    TypeMakerByAliasDict[maker.type_alias] = maker
-
-for maker in new_makers:
     TypeMakerByAliasDict[maker.type_name] = maker
 

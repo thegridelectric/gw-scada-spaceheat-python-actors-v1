@@ -93,11 +93,11 @@ class MessageStats:
 
     @property
     def num_status_received(self) -> int:
-        return self.num_received_by_message_type[GtShStatus_Maker.type_alias]
+        return self.num_received_by_message_type[GtShStatus_Maker.type_name]
 
     @property
     def num_snapshot_received(self) -> int:
-        return self.num_received_by_message_type[SnapshotSpaceheat_Maker.type_alias]
+        return self.num_received_by_message_type[SnapshotSpaceheat_Maker.type_name]
 
 
 class Telemetry(BaseModel):

@@ -393,8 +393,8 @@ class Atn2(ActorInterface, Proactor):
         """Summarize results in a string"""
         s = (
             f"Atn [{self.node.alias}] total: {self._stats.num_received}  "
-            f"status:{self._stats.total_received(GtShStatus_Maker.type_alias)}  "
-            f"snapshot:{self._stats.total_received(SnapshotSpaceheat_Maker.type_alias)}"
+            f"status:{self._stats.total_received(GtShStatus_Maker.type_name)}  "
+            f"snapshot:{self._stats.total_received(SnapshotSpaceheat_Maker.type_name)}"
         )
         if self._stats.num_received_by_topic:
             s += "\n  Received by topic:"

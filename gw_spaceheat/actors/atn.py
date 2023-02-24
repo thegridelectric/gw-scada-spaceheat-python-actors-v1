@@ -62,15 +62,15 @@ class Atn(CloudBase):
     def gw_subscriptions(self) -> List[Subscription]:
         return [
             Subscription(
-                Topic=f"{self.scada_g_node_alias}/{GsPwr_Maker.type_alias}",
+                Topic=f"{self.scada_g_node_alias}/{GsPwr_Maker.type_name}",
                 Qos=QOS.AtMostOnce,
             ),
             Subscription(
-                Topic=f"{self.scada_g_node_alias}/{GtShStatus_Maker.type_alias}",
+                Topic=f"{self.scada_g_node_alias}/{GtShStatus_Maker.type_name}",
                 Qos=QOS.AtLeastOnce,
             ),
             Subscription(
-                Topic=f"{self.scada_g_node_alias}/{SnapshotSpaceheat_Maker.type_alias}",
+                Topic=f"{self.scada_g_node_alias}/{SnapshotSpaceheat_Maker.type_name}",
                 Qos=QOS.AtLeastOnce,
             ),
             Subscription(

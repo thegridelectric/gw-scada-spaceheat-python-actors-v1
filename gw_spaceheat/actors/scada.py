@@ -194,7 +194,7 @@ class Scada(ScadaBase):
     ###############################################
 
     def subscriptions(self) -> List[Subscription]:
-        my_subscriptions = [Subscription(Topic=f"a.m/{GsPwr_Maker.type_alias}", Qos=QOS.AtMostOnce)]
+        my_subscriptions = [Subscription(Topic=f"a.m/{GsPwr_Maker.type_name}", Qos=QOS.AtMostOnce)]
 
         my_subscriptions.append(
             Subscription(
@@ -206,14 +206,14 @@ class Scada(ScadaBase):
         for node in self.my_simple_sensors():
             my_subscriptions.append(
                 Subscription(
-                    Topic=f"{node.alias}/{GtTelemetry_Maker.type_alias}",
+                    Topic=f"{node.alias}/{GtTelemetry_Maker.type_name}",
                     Qos=QOS.AtLeastOnce,
                 )
             )
         for node in self.my_multipurpose_sensors():
             my_subscriptions.append(
                 Subscription(
-                    Topic=f"{node.alias}/{GtShTelemetryFromMultipurposeSensor_Maker.type_alias}",
+                    Topic=f"{node.alias}/{GtShTelemetryFromMultipurposeSensor_Maker.type_name}",
                     Qos=QOS.AtLeastOnce,
                 )
             )

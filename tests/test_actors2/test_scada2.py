@@ -3,7 +3,7 @@ import logging
 import time
 from typing import cast
 
-from gwproto.gt.snapshot_spaceheat import SnapshotSpaceheat_Maker
+from gwproto.messages import SnapshotSpaceheat_Maker
 from gwproto.messages import GtShStatusEvent
 from gwproto.messages import SnapshotSpaceheatEvent
 
@@ -356,12 +356,12 @@ async def test_scada2_snaphot_request_delivery(tmp_path, monkeypatch, request):
         async def async_run(self):
             atn = self.runner.actors.atn2
             atn._logger.setLevel(logging.DEBUG)
-            assert atn.stats.num_received_by_type[SnapshotSpaceheat_Maker.type_alias] == 0
-            atn._logger.info(SnapshotSpaceheat_Maker.type_alias)
+            assert atn.stats.num_received_by_type[SnapshotSpaceheat_Maker.type_name] == 0
+            atn._logger.info(SnapshotSpaceheat_Maker.type_name)
             atn._logger.info(atn.summary_str())
             atn.snap()
             await await_for(
-                lambda: atn.stats.num_received_by_type[SnapshotSpaceheat_Maker.type_alias] == 1,
+                lambda: atn.stats.num_received_by_type[SnapshotSpaceheat_Maker.type_name] == 1,
                 3,
                 "Atn wait for snapshot message [test_scada2_snaphot_request_delivery]",
                 err_str_f=atn.summary_str,

@@ -36,7 +36,7 @@ class HomeAlone(ActorBase):
     def subscriptions(self) -> List[Subscription]:
         my_subscriptions = [
             Subscription(
-                Topic=f"{self.scada_node().alias}/{GtShStatus_Maker.type_alias}",
+                Topic=f"{self.scada_node().alias}/{GtShStatus_Maker.type_name}",
                 Qos=QOS.AtLeastOnce,
             )
         ]

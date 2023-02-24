@@ -49,13 +49,13 @@ def test_scada_small():
     local_topics = list(map(lambda x: x.Topic, scada.subscriptions()))
     multipurpose_topic_list = list(
         map(
-            lambda x: f"{x.alias}/{GtShTelemetryFromMultipurposeSensor_Maker.type_alias}",
+            lambda x: f"{x.alias}/{GtShTelemetryFromMultipurposeSensor_Maker.type_name}",
             scada.my_multipurpose_sensors(),
         )
     )
     assert set(multipurpose_topic_list) <= set(local_topics)
     simple_sensor_topic_list = list(
-        map(lambda x: f"{x.alias}/{GtTelemetry_Maker.type_alias}", scada.my_simple_sensors())
+        map(lambda x: f"{x.alias}/{GtTelemetry_Maker.type_name}", scada.my_simple_sensors())
     )
     assert set(simple_sensor_topic_list) <= set(local_topics)
 

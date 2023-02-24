@@ -7,7 +7,7 @@ from typing import Sequence
 
 from gwproto import Message
 from gwproto.enums import TelemetryName
-from gwproto.gt.snapshot_spaceheat import SnapshotSpaceheat
+from gwproto.messages import SnapshotSpaceheat
 from result import Err
 from result import Ok
 from result import Result
