@@ -16,8 +16,10 @@ from drivers.pipe_flow_sensor.pipe_flow_sensor_driver import \
 from problems import Problems
 from schema.enums import MakeModel
 
+
 class EZFlowI2cReadWarning(DriverWarning):
     ...
+
 
 class EZFlowI2cAddressMissing(DriverWarning):
     address: int
@@ -37,6 +39,7 @@ class EZFlowI2cAddressMissing(DriverWarning):
             s += f" <{super_str}>"
         s += f"   address:0x{self.address:02X}"
         return s
+
 
 class AtlasEzflo_PipeFlowSensorDriver(PipeFlowSensorDriver):
     dev: AtlasI2C

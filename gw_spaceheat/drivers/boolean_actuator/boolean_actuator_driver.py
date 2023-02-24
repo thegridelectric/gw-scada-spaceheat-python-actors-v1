@@ -38,4 +38,3 @@ class BooleanActuatorDriver(ABC):
     # noinspection PyMethodMayBeStatic
     def start(self) -> Result[DriverResult[bool], Exception]:
         return Ok(DriverResult(True))
-

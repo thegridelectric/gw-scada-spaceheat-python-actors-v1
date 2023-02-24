@@ -5,8 +5,10 @@ from proactor.config import MQTTClient
 
 DEFAULT_MAX_EVENT_BYTES: int = 500 * 1024 * 1024
 
+
 class PersisterSettings(BaseModel):
     max_bytes: int = DEFAULT_MAX_EVENT_BYTES
+
 
 class ScadaSettings(ProactorSettings):
     """Settings for the GridWorks scada."""

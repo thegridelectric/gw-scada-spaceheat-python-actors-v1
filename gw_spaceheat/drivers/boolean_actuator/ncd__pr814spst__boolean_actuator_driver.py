@@ -17,14 +17,17 @@ from drivers.driver_result import DriverResult
 from drivers.exceptions import DriverWarning
 from schema.enums import MakeModel
 
+
 class NcdPr814SpstI2cReadWarning(DriverWarning):
     ...
+
 
 class NcdPr814SpstI2cStartupFailure(DriverWarning):
     ...
 
 
 COMPONENT_I2C_ADDRESS = 0x20
+
 
 class NcdPr814Spst_BooleanActuatorDriver(BooleanActuatorDriver):
     mcp23008_driver: Optional[mcp23008] = None
@@ -57,15 +60,14 @@ class NcdPr814Spst_BooleanActuatorDriver(BooleanActuatorDriver):
             driver_result.warnings.append(NcdPr814SpstI2cStartupFailure())
         return Ok(driver_result)
 
-
     def is_on(self) -> Result[DriverResult[int | None], Exception]:
         driver_result = DriverResult[int | None](None)
         if self.mcp23008_driver is None:
             driver_result.value = None
         else:
             try:
-               driver_result.value = self.mcp23008_driver.get_single_gpio_status(self.component.gpio)
-               self.last_val = driver_result.value
+                driver_result.value = self.mcp23008_driver.get_single_gpio_status(self.component.gpio)
+                self.last_val = driver_result.value
             except Exception as e:
                 driver_result.warnings.append(e)
             if not property_format.is_bit(driver_result.value):

@@ -66,17 +66,22 @@ class EGaugeReadFailed(DriverWarning):
         )
         return s
 
+
 class EGaugeReadOutOfRange(EGaugeReadFailed):
     ...
+
 
 class EGaugeCommWarning(DriverWarning):
     ...
 
+
 class EGaugeHadDisconnect(EGaugeCommWarning):
     ...
 
+
 class EGaugeConnectFailed(EGaugeCommWarning):
     ...
+
 
 class EGuage4030_PowerMeterDriver(PowerMeterDriver):
     MAX_RECONNECT_DELAY_SECONDS: float = 10

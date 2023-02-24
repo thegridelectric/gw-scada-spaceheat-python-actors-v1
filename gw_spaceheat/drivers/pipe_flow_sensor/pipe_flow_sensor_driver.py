@@ -24,7 +24,6 @@ class PipeFlowSensorDriver(ABC):
     def start(self) -> Result[DriverResult[bool], Exception]:
         return Ok(DriverResult(True))
 
-
     @abstractmethod
     def read_telemetry_value(self) -> Result[DriverResult[int | None], Exception]:
         raise NotImplementedError
