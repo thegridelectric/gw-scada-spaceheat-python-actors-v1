@@ -176,15 +176,15 @@ async def test_scada2_relay_dispatch(tmp_path, monkeypatch, request):
             assert len(snapshot.Snapshot.AboutNodeAliasList) == 0
             assert len(snapshot.Snapshot.ValueList) == 0
 
-            relay_state_message_type = "gt.telemetry.110"
+            relay_state_message_type = "gt.telemetry"
             relay_state_topic = f"{relay2.alias}/{relay_state_message_type}"
-            relay_command_received_topic = f"{relay2.alias}/gt.driver.booleanactuator.cmd.100"
+            relay_command_received_topic = f"{relay2.alias}/gt.driver.booleanactuator.cmd"
             assert link_stats.num_received_by_topic[relay_state_topic] == 0
             assert link_stats.num_received_by_topic[relay_command_received_topic] == 0
 
             # Wait for relay to report its initial state
             await await_for(
-                lambda: scada2.stats.num_received_by_type["gt.telemetry.110"] == 1,
+                lambda: scada2.stats.num_received_by_type["gt.telemetry"] == 1,
                 5,
                 "Scada wait for relay state change",
                 err_str_f=scada2.summary_str
@@ -402,8 +402,8 @@ async def test_scada2_status_content_dynamics(tmp_path, monkeypatch, request):
             relay = self.runner.actors.relay2
             meter = self.runner.actors.meter2
             thermo = self.runner.actors.thermo2
-            telemetry_message_type = "gt.telemetry.110"
-            meter_telemetry_message_type = "gt.sh.telemetry.from.multipurpose.sensor.100"
+            telemetry_message_type = "gt.telemetry"
+            meter_telemetry_message_type = "gt.sh.telemetry.from.multipurpose.sensor"
 
             # Verify scada status and snapshot are emtpy
             status = scada._data.make_status(int(time.time()))
