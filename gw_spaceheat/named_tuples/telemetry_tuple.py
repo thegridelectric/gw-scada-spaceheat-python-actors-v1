@@ -12,4 +12,3 @@ class TelemetryTuple(NamedTuple):
         return (
             f"TT({self.AboutNode.alias} {self.TelemetryName.value} read by {self.SensorNode.alias})"
         )
-
